@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "format": "prettier --write \"cypress/**/*.ts\"",
+    "lint:code": "eslint",
+    "run": "cypress run",
+    "open": "cypress open"
+  },
+  "dependencies": {
+    "cypress": "^13.8.1",
+    "jquery": "^3.7.1",
+    "cypress-image-snapshot": "^4.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
