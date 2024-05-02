@@ -61,15 +61,19 @@ As variáveis por ambiente estão definidos dentro dos arquivos cypress.config.t
 
 #### Resultado
 
-O resultado dos testes são apresentados no terminal e em report HTML gerado com [allure-mocha](https://www.npmjs.com/package/allure-mocha).
+Com allure report:
+```sh
+https://reinaldorossetti.github.io/cypress-typescript-allure-report/allure-report/#suites/
+```
+Actions:
+https://github.com/reinaldorossetti/cypress-typescript-allure-report/actions
 
 **Passo 4** - Como funciona a Estrutura do Projeto:
 
 ### Dependências utilizadas
 | lib | descrição
 | --- | ---
-| [Allure-mocha](https://www.npmjs.com/package/allure-mocha)| Gera report HTML
-| [Standard](https://www.npmjs.com/package/standard)| Linter e formatter do código JS
+| [Allure-mocha](hhttps://github.com/Shelex/cypress-allure-plugina)| Gera report HTML
 
 As dependências estão definidas no [package.json](./package.json).
 
@@ -128,5 +132,4 @@ expect(beverages).to.have.property('tea').with.lengthOf(3);
 
 ### Referências:  
 [Cypress](https://www.cypress.io)
-[Mocha](https://mochajs.org)
-[Allure Mocha](https://docs.qameta.io/allure/#_mocha)  
+[Allure](https://github.com/Shelex/cypress-allure-plugin)  
