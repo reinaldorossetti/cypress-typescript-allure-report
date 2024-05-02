@@ -7,8 +7,7 @@
   },
   "dependencies": {
     "cypress": "^13.8.1",
-    "jquery": "^3.7.1",
-    "cypress-image-snapshot": "^4.0.1"
+    "jquery": "^3.7.1"
   },
   "devDependencies": {
     "typescript": "^5.3.3"
