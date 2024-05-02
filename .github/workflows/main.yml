@@ -31,26 +31,6 @@ jobs:
         browser: chrome
         headed: true
 
-    - name: Step 2 Cypress run - browser firefox
-      uses: cypress-io/github-action@v5
-      if: always()
-      continue-on-error: true
-      with:
-        spec: cypress/e2e/tests/*.cy.ts
-        env:  allure=true, video=false
-        browser: firefox
-        headed: true
-
-    - name: Step 2 Cypress run - browser edge
-      uses: cypress-io/github-action@v5
-      if: always()
-      continue-on-error: true
-      with:
-        spec: cypress/e2e/tests/*.cy.ts
-        env:  allure=true, video=false
-        browser: edge
-        headed: true
-
     - name: mostra as pastas
       run: ls -la
     - name:  Step 3 - Collect Allure files and generate allure-report folder
@@ -59,8 +39,8 @@ jobs:
     - name: 🎁 Step 4 - Publishing Allure artifact to GitHub Actions
       uses: actions/upload-artifact@v3
       with:
-        name: screenshots
-        path: ./cypress/screenshots/
+        name: allure-report
+        path: allure-report
         
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3

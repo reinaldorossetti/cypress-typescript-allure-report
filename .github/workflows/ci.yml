@@ -1,0 +1,72 @@
+name: End-to-end tests
+on: push
+permissions: write-all
+
+jobs:
+  cypress-run-electron:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+      - name: Upload videos
+        uses: actions/upload-artifact@v3
+        with:
+          name: video-electron-run
+          path: cypress/videos
+          retention-days: 1
+  cypress-run-chrome:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          browser: chrome
+      - name: Upload videos
+        uses: actions/upload-artifact@v3
+        with:
+          name: video-chrome-run
+          path: cypress/videos
+          retention-days: 1
+  cypress-run-firefox:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          command: npx cypress run --browser firefox --config video=false
+  cypress-run-edge:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          browser: edge
+      - name: Upload videos
+        uses: actions/upload-artifact@v3
+        with:
+          name: video-edge-run
+          path: cypress/videos
+  cypress-run-safari:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install webkit dependencies for Linux
+        run: npx playwright install-deps webkit
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          command: npx cypress run --browser webkit
+      - name: Upload videos
+        uses: actions/upload-artifact@v3
+        with:
+          name: video-webkit-run
+          path: cypress/videos
