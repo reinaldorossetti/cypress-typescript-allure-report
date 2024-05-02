@@ -1,4 +1,4 @@
-name: End-to-end tests
+name: All Browsers - End-to-end tests
 on: push
 permissions: write-all
 
