@@ -70,11 +70,6 @@ https://github.com/reinaldorossetti/cypress-typescript-allure-report/actions
 
 **Passo 4** - Como funciona a Estrutura do Projeto:
 
-### Dependências utilizadas
-| lib | descrição
-| --- | ---
-| [Allure-mocha](hhttps://github.com/Shelex/cypress-allure-plugina)| Gera report HTML
-
 As dependências estão definidas no [package.json](./package.json).
 
 ### Estrutura de diretórios
@@ -103,31 +98,6 @@ Nos testes precisamos adicionar os comandos abaixos:
 ````js
     allureMocha.allure.parameter('body', String(response.text))
     allureMocha.allure.severity('minor')
-````
-
-## Lint  
-
-É boa prática que os arquivos estejam padronizados, seguindo o padrão de estilo do JS.
-Para isso é utilizado a lib [Standard](https://www.npmjs.com/package/standard).
-
-Após o término da sua implementação, execute:
-
-`npm run lint`
-
-
-##  Validação do Teste
-As validações foram feitas através do Chai Assertion Library, no formato que ele chama de  BDD style.
-Expect
-=======
-##  Validaçãoes dos Testes
-As validações foram feitas através do Chai Assertion Library, no formato que ele chama de  BDD style usando o Expect.  
-The BDD style is exposed through expect or should interfaces. In both scenarios, you chain together natural language assertions.  
-
-````JS
-expect(foo).to.be.a('string');
-expect(foo).to.equal('bar');
-expect(foo).to.have.lengthOf(3);
-expect(beverages).to.have.property('tea').with.lengthOf(3);
 ````
 
 ### Referências:  

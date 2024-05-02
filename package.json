@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "run:cover": "nyc --reporter=lcov --reporter=text npx cypress run",
+    "cover": "nyc --reporter=lcov --reporter=text npx cypress run",
     "tests": "cypress run --env allure=true --env video=true",
     "open": "cypress open",
     "report": "allure generate allure-report --clean && allure open allure-report"
