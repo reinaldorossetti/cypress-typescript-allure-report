@@ -20,13 +20,15 @@ jobs:
       run: |
         npm install -g allure-commandline --save-dev |
         npm install
-    - name: Step 2 Cypress run
+    - name: Step 2 Cypress run - browser chrome
       uses: cypress-io/github-action@v5
       if: always()
       continue-on-error: true
       with:
         spec: cypress/e2e/tests/*.cy.ts
         env:  allure=true, video=false
+        browser: chrome
+
     - name: mostra as pastas
       run: ls -la
     - name:  Step 3 - Collect Allure files and generate allure-report folder
