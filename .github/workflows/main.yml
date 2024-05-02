@@ -35,8 +35,8 @@ jobs:
     - name: 🎁 Step 4 - Publishing Allure artifact to GitHub Actions
       uses: actions/upload-artifact@v3
       with:
-        name: allure-report
-        path: allure-report
+        name: screenshots
+        path: ./cypress/screenshots/
         
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
