@@ -1,0 +1,45 @@
+name: End-to-end tests
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+    - name: Step 1 Install dependencies
+      run: |
+        npm install -g allure-commandline --save-dev |
+        npm install
+    - name: Step 2 Cypress run
+      uses: cypress-io/github-action@v5
+      if: always()
+      continue-on-error: true
+      with:
+        spec: cypress/e2e/tests/*.cy.js
+        env:  allure=true
+    - name: mostra as pastas
+      run: ls -la
+    - name:  Step 3 - Collect Allure files and generate allure-report folder
+      run: |
+        allure generate ./allure-results -o allure-report/
+    - name: 🎁 Step 4 - Publishing Allure artifact to GitHub Actions
+      uses: actions/upload-artifact@v3
+      with:
+        name: allure-report
+        path: allure-report
+        
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages  # default: gh-pages
+        publish_dir: allure-report
+        destination_dir: allure-report

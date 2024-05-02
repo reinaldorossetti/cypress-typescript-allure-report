@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+import { CartoesPage } from "../../elements/virtual_shopping.elements"
 
 describe('Carrinho de compras funcionalidade', () => {
 
@@ -5,25 +7,25 @@ describe('Carrinho de compras funcionalidade', () => {
       cy.DadoQueEstejaNaTelaDeCartoes();
     })
 
-    it('Teste validar produto adicionado no carrinho de compras, com sucesso', function() {
+    it('CT01 - validar produto adicionado no carrinho de compras com sucesso', function() {
       
       const value = String(Cypress._.random(100, 300))
       const value_format = String(value).replace(/(.)(?=(\d{2})+$)/g,'$1,')
 
-      cy.contains('Cartões VR').should('be.visible').click()
-      cy.get("input#produto-auto-quantidade").then(($el)=>{ $el.get(0).scrollIntoView()})
+      cy.get(CartoesPage.INPUT_AUTO_QUANTIDADE).then(($el)=>{ $el.get(0).scrollIntoView()})
         .type(value)
-      cy.get('#produto-auto-valor').then(($el)=>{ $el.get(0).scrollIntoView()}).type(value)
-      cy.get('#btn-adicionar-carrinho-auto').then(($el)=>{ $el.get(0).scrollIntoView()}).click()
-      cy.contains('Produto adicionado!').should('be.visible')
-      cy.contains('Seguir para o carrinho').should('be.visible')
-      cy.get('#btn-meu-carrinho').then(($el)=>{ $el.get(0).scrollIntoView()}).click()
+      cy.get(CartoesPage.INPUT_AUTO_VALOR).then(($el)=>{ $el.get(0).scrollIntoView()}).type(value)
+      cy.get(CartoesPage.BTN_ADD_CART).then(($el)=>{ $el.get(0).scrollIntoView()}).click()
+      
+      cy.contains(CartoesPage.TXT_PROD_ADICIONADO).should('be.visible')
+      cy.contains(CartoesPage.TXT_MESSAGE_CART).should('be.visible')
+      cy.get(CartoesPage.BTN_CART).then(($el)=>{ $el.get(0).scrollIntoView()}).click()
 
-      cy.contains('Meu carrinho').should('be.visible')
-      cy.contains('Valor por cartão').should('be.visible')
-      cy.contains('Quantidade cartões').should('be.visible')
-      cy.contains('Total parcial:').should('be.visible')
-      cy.contains('Adicionar ou editar produtos').should('be.visible')
+      cy.contains(CartoesPage.TXT_MEU_CARRINHO).should('be.visible')
+      cy.contains(CartoesPage.TXT_VALOR_CARTAO).should('be.visible')
+      cy.contains(CartoesPage.TXT_QUATIDADE_CARTAO).should('be.visible')
+      cy.contains(CartoesPage.TXT_TOTAL_PARCIAL).should('be.visible')
+      cy.contains(CartoesPage.TXT_ADD_EDIT).should('be.visible')
       cy.contains(value).should('be.visible')
       cy.contains("R$ " + value_format).should('be.visible')
       

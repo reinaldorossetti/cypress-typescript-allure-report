@@ -24,10 +24,17 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
+import { HomePage } from "../elements/home_page.elements"
+
+/**
+ * Adicionando a função para navegar até a tela de cartões.
+ * //cy.contains('Compre online').should('be.visible').click()
+ */
+
 Cypress.Commands.add('DadoQueEstejaNaTelaDeCartoes', () => {
     cy.visit('/');
-    //cy.contains('Compre online').should('be.visible').click()
-    cy.contains('Bem-vindo(a) à Loja VR!').should('be.visible')
-    cy.get('#sc_terms-consent').click()
-    cy.get('button.close-button').click()
+    cy.contains(HomePage.TXT_MESSAGE).should('be.visible')
+    cy.get(HomePage.BTN_TERMS).click()
+    cy.get(HomePage.BTN_CLOSE).click()
+    cy.contains(HomePage.TXT_CARTOES).should('be.visible').click()
 })

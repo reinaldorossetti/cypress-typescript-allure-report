@@ -1,8 +1,8 @@
 {
   "scripts": {
     "format": "prettier --write \"cypress/**/*.ts\"",
-    "lint:code": "eslint",
-    "run": "cypress run",
+    "lint": "eslint",
+    "tests": "cypress run",
     "open": "cypress open"
   },
   "dependencies": {
