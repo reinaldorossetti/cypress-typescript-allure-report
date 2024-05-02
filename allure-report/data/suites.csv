@@ -1,2 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"broken","Thu May 02 14:34:27 UTC 2024","Thu May 02 14:35:04 UTC 2024","36622","","Carrinho de compras funcionalidade","","","","CT01 - validar produto adicionado no carrinho de compras com sucesso",""
+"passed","Thu May 02 14:49:07 UTC 2024","Thu May 02 14:49:17 UTC 2024","10315","","Carrinho de compras funcionalidade","","","","CT01 - validar produto adicionado no carrinho de compras com sucesso",""
