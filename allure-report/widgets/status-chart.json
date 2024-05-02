@@ -1,1 +1,1 @@
-[{"uid":"879d06be8d9c0de0","name":"CT01 - validar produto adicionado no carrinho de compras com sucesso","time":{"start":1714661347666,"stop":1714661357981,"duration":10315},"status":"passed","severity":"normal"}]
+[{"uid":"2b02c0c3b13749b6","name":"CT01 - validar produto adicionado no carrinho de compras com sucesso","time":{"start":1714662001738,"stop":1714662036032,"duration":34294},"status":"broken","severity":"normal"}]
