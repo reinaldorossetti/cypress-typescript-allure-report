@@ -29,7 +29,7 @@ describe('Carrinho de compras funcionalidade', () => {
       cy.contains(value).should('be.visible')
       cy.contains("R$ " + value_format).should('be.visible')
       
-      const partial_total = String(parseFloat(value) * parseFloat(value_format.replace(",", '.')))
+      const partial_total = String(((parseFloat(value) * parseFloat(value_format.replace(",", '.'))).toFixed(2)))
       cy.contains("R$ " + partial_total.replace(".", ',')).should('be.visible')
     })
 
