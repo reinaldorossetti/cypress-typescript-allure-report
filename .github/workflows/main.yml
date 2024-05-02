@@ -20,6 +20,7 @@ jobs:
       run: |
         npm install -g allure-commandline --save-dev |
         npm install
+    
     - name: Step 2 Cypress run - browser chrome
       uses: cypress-io/github-action@v5
       if: always()
@@ -28,6 +29,27 @@ jobs:
         spec: cypress/e2e/tests/*.cy.ts
         env:  allure=true, video=false
         browser: chrome
+        headed: true
+
+    - name: Step 2 Cypress run - browser firefox
+      uses: cypress-io/github-action@v5
+      if: always()
+      continue-on-error: true
+      with:
+        spec: cypress/e2e/tests/*.cy.ts
+        env:  allure=true, video=false
+        browser: firefox
+        headed: true
+
+    - name: Step 2 Cypress run - browser edge
+      uses: cypress-io/github-action@v5
+      if: always()
+      continue-on-error: true
+      with:
+        spec: cypress/e2e/tests/*.cy.ts
+        env:  allure=true, video=false
+        browser: edge
+        headed: true
 
     - name: mostra as pastas
       run: ls -la
