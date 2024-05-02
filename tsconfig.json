@@ -1,10 +1,25 @@
 {
     "compilerOptions": {
-      "target": "es5",
-      "lib": ["es5", "dom"],
-      "types": ["cypress", "node"]
+      "skipLibCheck": true,
+      "baseUrl": "./",
+      "rootDir": "./",
+      "target": "es6",
+      "lib": ["es6", "dom"],
+      "types": ["cypress", "node"],
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "allowJs": true,
+      "noEmit": true,
+      "allowImportingTsExtensions": true
     },
-    "include": ["**/*.ts"],
+    "include": [
+      "cypress/**/*.ts",
+      "cypress/support/*.ts",
+      "cypress/e2e/tests/*.ts",
+      "cypress/e2e/**/**/*.ts"
+    ],
+    "exclude": ["node_modules/"],
     "module": "commonjs",
     "moduleResolution": "node",
     "preserveValueImports": false

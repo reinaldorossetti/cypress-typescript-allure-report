@@ -23,7 +23,7 @@ jobs:
       if: always()
       continue-on-error: true
       with:
-        spec: cypress/e2e/tests/*.cy.js
+        spec: cypress/e2e/tests/*.cy.ts
         env:  allure=true
     - name: mostra as pastas
       run: ls -la

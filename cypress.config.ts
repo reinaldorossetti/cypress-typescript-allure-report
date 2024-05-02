@@ -10,5 +10,9 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
+    // Para setar o caminho dos testes.
+    specPattern: [
+      "cypress/e2e/tests/*.cy.*",
+   ],
   },
 });
