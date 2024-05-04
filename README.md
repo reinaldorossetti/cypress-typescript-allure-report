@@ -76,15 +76,15 @@ As dependências estão definidas no [package.json](./package.json).
 
 ```
 cypress-typescript-allure-report/  
-
+ ├─ .github
  ├─ e2e/ 
  |   ├─ tests /
  |       └─ virtual_shopping_cart.cy.ts 
- |   └─ resources/  
-     ├─ support/  
- |   ├─ commands.ts  
- |   ├─ e2e.ts  
- |   └─ index.d.js  
+ |   ├─ elements/  
+ |   └─ support/  
+ |       ├─ commands.ts  
+ |       ├─ e2e.ts  
+ |       └─ index.d.js  
  ├─ cypress.config.ts  
  ├─ cypress.env.json  
  ├─ package.json  
