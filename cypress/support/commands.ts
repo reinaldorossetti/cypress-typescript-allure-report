@@ -33,6 +33,15 @@ import { HomePage } from "../elements/home_page.elements"
 
 Cypress.Commands.add('DadoQueEstejaNaTelaDeCartoes', () => {
     cy.visit('/');
+    // cria um stub ou seja uma chamada fake, para não ter que abrir uma nova aba.
+    const stub = cy.stub().as('open')
+    cy.on('window:before:load', (win) => {
+        cy.stub(win, 'open').callsFake(stub)
+    })
+    cy.contains('Compre online').should('be.visible').click()
+    // intercepta a chamada de uma nova aba.
+    cy.get('@open').should('have.been.calledOnce')
+    cy.visit(Cypress.env("BASE_URL"));
     cy.contains(HomePage.TXT_MESSAGE).should('be.visible')
     cy.get(HomePage.BTN_TERMS).click()
     cy.get(HomePage.BTN_CLOSE).click()

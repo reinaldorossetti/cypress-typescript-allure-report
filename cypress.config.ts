@@ -14,8 +14,8 @@ export default defineConfig({
   },
   
   e2e: {
-    baseUrl: "https://loja.vr.com.br/",
-    "chromeWebSecurity": false,
+    baseUrl: "https://www.vr.com.br/",
+    chromeWebSecurity: false,
     includeShadowDom: true,
     retries: 1,
     setupNodeEvents(on, config) {
