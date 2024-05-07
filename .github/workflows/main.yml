@@ -12,17 +12,17 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
+      uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
       with:
-        node-version: '16'
+        node-version: '18'
     - name: Step 1 Install dependencies
       run: |
         npm install -g allure-commandline --save-dev |
         npm install
     
     - name: Step 2 Cypress run - browser chrome
-      uses: cypress-io/github-action@v5
+      uses: cypress-io/github-action@v6
       if: always()
       continue-on-error: true
       with:
@@ -37,13 +37,13 @@ jobs:
       run: |
         allure generate ./allure-results -o allure-report/
     - name: 🎁 Step 4 - Publishing Allure artifact to GitHub Actions
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: allure-report
         path: allure-report
         
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages  # default: gh-pages
