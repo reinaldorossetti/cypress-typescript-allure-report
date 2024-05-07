@@ -10,7 +10,8 @@ export default defineConfig({
 
   env: {
     allure: true,
-    video: false
+    video: false,
+    allureReuseAfterSpec: true
   },
   
   e2e: {
@@ -20,13 +21,12 @@ export default defineConfig({
     retries: 1,
     setupNodeEvents(on, config) {
       // implement node event listeners here
-      require('@cypress/code-coverage/task')(on, config)
       allureWriter(on, config);
       return config;
     },
     // Para setar o caminho dos testes.
     specPattern: [
-      "cypress/e2e/tests/*.cy.*",
+      "cypress/e2e/features/**/*.cy.*",
    ],
   },
 });

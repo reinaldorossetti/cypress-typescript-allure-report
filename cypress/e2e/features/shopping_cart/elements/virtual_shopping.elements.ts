@@ -11,6 +11,10 @@ const CartoesPage = {
     TXT_QUATIDADE_CARTAO: 'Quantidade cartões',
     TXT_TOTAL_PARCIAL: 'Total parcial:',
     TXT_ADD_EDIT: 'Adicionar ou editar produtos',
+    TXT_CARINHO_VAZIO: 'O seu carrinho está vazio, adicione ao menos um produto para prosseguir com a compra.',
+    ICON_CARINHO_VAZIO: '.fa-regular.fa-cart-circle-exclamation',
+    TXT_QTD_MAXIMA: 'Qtd. máxima: 300',
+    TXT_VALOR_MINIMO: 'Valor mínimo: R$ 1,00'
 }
 
 export{CartoesPage}

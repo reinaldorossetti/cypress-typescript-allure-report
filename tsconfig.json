@@ -5,7 +5,7 @@
       "rootDir": "./",
       "target": "es6",
       "lib": ["es6", "dom"],
-      "types": ["cypress", "node"],
+      "types": ["cypress", "node","@shelex/cypress-allure-plugin"],
       "moduleResolution": "node",
       "resolveJsonModule": true,
       "esModuleInterop": true,
@@ -16,7 +16,7 @@
     "include": [
       "cypress/**/*.ts",
       "cypress/support/*.ts",
-      "cypress/e2e/tests/*.ts",
+      "cypress/e2e/features/*.ts",
       "cypress/e2e/**/**/*.ts"
     ],
     "exclude": ["node_modules/"],

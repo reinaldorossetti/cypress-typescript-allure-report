@@ -45,6 +45,20 @@ npm install
 
 #### Executando os testes
 
+### Pre-requisito:
+Criar o arquivo:
+```
+cypress.env.json
+```
+Com o conteúdo:
+````
+{
+  "BASE_URL": "https://loja.vr.com.br/",
+  "PASSWORD": "",
+  "USER": ""
+}
+````
+
 Caso queira apenas rodar os testes, sem precisar subir ambiente, execute o seguinte comando:
 
 > Os testes serão executados em cima da página [VR](https://loja.vr.com.br/)
@@ -76,19 +90,21 @@ As dependências estão definidas no [package.json](./package.json).
 
 ```
 cypress-typescript-allure-report/  
- ├─ .github
- ├─ e2e/ 
- |   ├─ tests /
- |       └─ virtual_shopping_cart.cy.ts 
- |   ├─ elements/  
+ ├─ .github                                 - Arquivos de Esteira do GitActions
+ ├─ cypress/                                - Pasta do Cypress com as Automações.
+ |   ├─ e2e/ features /                     - Pasta dos testes end to end, separado por features.
+ |       ├─ nome_da_feature
+ |          ├─ virtual_shopping_cart.cy.ts  - Feature do shopping cart, contendo todo o passo a passo.
+ |          └─ elements /                   - Elementos e Textos relacionado a tela que esta sendo testada.
  |   └─ support/  
- |       ├─ commands.ts  
- |       ├─ e2e.ts  
- |       └─ index.d.js  
- ├─ cypress.config.ts  
- ├─ cypress.env.json  
- ├─ package.json  
- └─ tsconfig.json  
+ |       ├─ commands.ts                     - Comandos personalizados que estão utilizando o Cypress.Commands.
+ |       ├─ e2e.ts                          - Os imports e Setup para os testes e2e.  
+ |       └─ index.d.js                      - Os comandos que estão no commands.ts, precisam ser declados na interface Chainable<Subject>.
+ ├─ cypress.config.ts                       - Arquivo principal de configuração do Cypress.
+ ├─ cypress.env.json                        - Dados que seram utilizados nos testes, utilizado o Cypress.env
+ ├─ package.json                            - Arquivo de Setup do Nodejs/NPM, vai conter os comandos de execução e as Bibliotecas.
+ ├─ README.md                               - Documentação básica do projeto.
+ └─ tsconfig.json                           - Arquivo de Configuração do TypeScript.
 ```
 
 ## Allure report  
