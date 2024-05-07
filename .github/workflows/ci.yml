@@ -14,7 +14,8 @@ jobs:
           record: true
       - uses: actions/upload-artifact@v4
         # add the line below to store screenshots only on failures
-        if: failure()
+        if: always()
+        continue-on-error: true
         with:
           name: cypress-screenshots
           path: cypress/screenshots
@@ -31,7 +32,8 @@ jobs:
           record: true
       - uses: actions/upload-artifact@v4
         # add the line below to store screenshots only on failures
-        if: failure()
+        if: always()
+        continue-on-error: true
         with:
           name: cypress-screenshots
           path: cypress/screenshots
@@ -47,7 +49,8 @@ jobs:
           command: npx cypress run --record --browser firefox
       - uses: actions/upload-artifact@v4
         # add the line below to store screenshots only on failures
-        if: failure()
+        if: always()
+        continue-on-error: true
         with:
           name: cypress-screenshots
           path: cypress/screenshots
@@ -64,7 +67,8 @@ jobs:
           record: true
       - uses: actions/upload-artifact@v4
         # add the line below to store screenshots only on failures
-        if: failure()
+        if: always()
+        continue-on-error: true
         with:
           name: cypress-screenshots
           path: cypress/screenshots
@@ -82,7 +86,8 @@ jobs:
           command: npx cypress run --record --browser webkit
       - uses: actions/upload-artifact@v4
         # add the line below to store screenshots only on failures
-        if: failure()
+        if: always()
+        continue-on-error: true
         with:
           name: cypress-screenshots
           path: cypress/screenshots
