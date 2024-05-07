@@ -3,21 +3,6 @@ on:
   push:
   workflow_dispatch:
 jobs:
-  cypress-run-electron:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-      - uses: actions/upload-artifact@v4
-        # add the line below to store screenshots only on failures
-        if: always()
-        continue-on-error: true
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
   cypress-run-chrome:
     runs-on: ubuntu-22.04
     steps:
@@ -32,7 +17,7 @@ jobs:
         if: always()
         continue-on-error: true
         with:
-          name: cypress-screenshots
+          name: cypress-screenshots-chrome
           path: cypress/screenshots
           if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
   cypress-run-firefox:
@@ -43,13 +28,13 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          command: npx cypress run --browser firefox
+          browser: firefox
       - uses: actions/upload-artifact@v4
         # add the line below to store screenshots only on failures
         if: always()
         continue-on-error: true
         with:
-          name: cypress-screenshots
+          name: cypress-screenshots-firefox
           path: cypress/screenshots
           if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
   cypress-run-edge:
@@ -66,25 +51,6 @@ jobs:
         if: always()
         continue-on-error: true
         with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
-  cypress-run-safari:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install webkit dependencies for Linux
-        run: npx playwright install-deps webkit
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          command: npx cypress run --browser webkit
-      - uses: actions/upload-artifact@v4
-        # add the line below to store screenshots only on failures
-        if: always()
-        continue-on-error: true
-        with:
-          name: cypress-screenshots
+          name: cypress-screenshots-edge
           path: cypress/screenshots
           if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
