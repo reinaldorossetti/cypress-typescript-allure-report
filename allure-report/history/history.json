@@ -1,1 +1,1 @@
-{"b5ff94eb5d1431f763da2d07a8ec9baf":{"statistic":{"failed":0,"broken":1,"skipped":0,"passed":0,"unknown":0,"total":1},"items":[{"uid":"42f685440cc1078c","status":"broken","statusDetails":"`cy.visit()` must be called with a `url` or an `options` object containing a `url` as its 1st argument\n\nhttps://on.cypress.io/visit","time":{"start":1714863126473,"stop":1714863135961,"duration":9488}}]}}
+{}
