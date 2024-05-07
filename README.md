@@ -63,8 +63,17 @@ Caso queira apenas rodar os testes, sem precisar subir ambiente, execute o segui
 
 > Os testes serão executados em cima da página [VR](https://loja.vr.com.br/)
 
+#### Testes com chrome
 ```sh
-npm run tests
+npm run tests-chrome
+```
+#### Testes com edge
+```sh
+npm run tests-chrome
+```
+#### Testes com firefox
+```sh
+npm run tests-firefox
 ```
 Para exibir o Report (Foi utilizado o Allure Report):
 ```sh

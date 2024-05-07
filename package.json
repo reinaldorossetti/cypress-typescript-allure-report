@@ -1,6 +1,5 @@
 {
   "scripts": {
-    "cover": "nyc --reporter=lcov --reporter=text npx cypress run",
     "tests-chrome": "cypress run --env allure=true --env video=true --browser chrome",
     "tests-edge": "cypress run --env allure=true --env video=true --browser edge",
     "tests-firefox": "cypress run --env allure=true --env video=true --browser firefox",
