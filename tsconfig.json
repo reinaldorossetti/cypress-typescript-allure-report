@@ -14,7 +14,7 @@
       "allowImportingTsExtensions": true
     },
     "include": [
-      "cypress/**/*.ts",
+      "cypress/e2e/features/**/*.cy.ts",
       "cypress/support/*.ts",
       "cypress/e2e/features/*.ts",
       "cypress/e2e/**/**/*.ts"

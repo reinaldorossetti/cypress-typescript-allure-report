@@ -26,7 +26,7 @@ jobs:
       if: always()
       continue-on-error: true
       with:
-        spec: cypress/e2e/tests/*.cy.ts
+        spec: cypress/e2e/features/**/*.cy.*
         env:  allure=true, video=false
         browser: chrome
         headed: true
