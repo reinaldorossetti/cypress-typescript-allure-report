@@ -19,7 +19,7 @@ export const ShadowDomPage = {
     INPUT_EMAIL: 'input[name="email"]',
     INPUT_PASSWORD: 'input[name="password"]',
     INPUT_CONFIRM_PASSWORD: 'input[name="confirm_password"]',
-    BTN_SUBMIT: 'button.btn',
+    BTN_SUBMIT: 'button',
 
     // Host 2: Shadow DOM Example (Formulário secundário)
     EXAMPLE_HOST: '#shadow_host',
