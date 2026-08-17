@@ -74,3 +74,86 @@ Cypress.Commands.add('GerarCNPJ' as any, () => {
       
 })
 
+import { VertemCadastroPage, VertemCadastroData } from "../e2e/features/vertem_cadastro/elements/vertem_cadastro.elements"
+
+Cypress.Commands.add('DadoQueEstejaNaTelaFaleComEspecialistaVertem', () => {
+    cy.visit(VertemCadastroPage.URL);
+    cy.get(VertemCadastroPage.INPUT_NOME).should('be.visible');
+})
+
+Cypress.Commands.add('PreencherFormularioVertem', (dados: Partial<VertemCadastroData>) => {
+    if (dados.nome !== undefined) {
+        if (dados.nome) cy.get(VertemCadastroPage.INPUT_NOME).clear().type(dados.nome);
+        else cy.get(VertemCadastroPage.INPUT_NOME).clear();
+    }
+    if (dados.email !== undefined) {
+        if (dados.email) cy.get(VertemCadastroPage.INPUT_EMAIL).clear().type(dados.email);
+        else cy.get(VertemCadastroPage.INPUT_EMAIL).clear();
+    }
+    if (dados.telefone !== undefined) {
+        if (dados.telefone) cy.get(VertemCadastroPage.INPUT_TELEFONE).clear().type(dados.telefone);
+        else cy.get(VertemCadastroPage.INPUT_TELEFONE).clear();
+    }
+    if (dados.empresa !== undefined) {
+        if (dados.empresa) cy.get(VertemCadastroPage.INPUT_EMPRESA).clear().type(dados.empresa);
+        else cy.get(VertemCadastroPage.INPUT_EMPRESA).clear();
+    }
+    if (dados.segmento !== undefined) {
+        if (dados.segmento) cy.get(VertemCadastroPage.SELECT_SEGMENTO).select(dados.segmento);
+    }
+    if (dados.faturamento !== undefined) {
+        if (dados.faturamento) cy.get(VertemCadastroPage.SELECT_FATURAMENTO).select(dados.faturamento);
+    }
+    if (dados.cargo !== undefined) {
+        if (dados.cargo) cy.get(VertemCadastroPage.SELECT_CARGO).select(dados.cargo);
+    }
+    if (dados.mensagem !== undefined) {
+        if (dados.mensagem) cy.get(VertemCadastroPage.TEXTAREA_MENSAGEM).clear().type(dados.mensagem);
+        else cy.get(VertemCadastroPage.TEXTAREA_MENSAGEM).clear();
+    }
+    if (dados.aceite) {
+        cy.get(VertemCadastroPage.CHECKBOX_ACEITE).check({ force: true });
+    }
+})
+
+import { ShadowDomPage, ShadowSignUpFormData, ShadowDomExampleData } from "../e2e/features/shadow_dom/elements/shadow_dom.elements"
+
+Cypress.Commands.add('DadoQueEstejaNaTelaShadowDom', () => {
+    cy.visit(ShadowDomPage.URL);
+    cy.get(ShadowDomPage.SIGNUP_HOST).should('exist');
+})
+
+Cypress.Commands.add('PreencherFormularioSignUpShadowDom', (dados: Partial<ShadowSignUpFormData>) => {
+    cy.get(ShadowDomPage.SIGNUP_HOST).shadow().within(() => {
+        if (dados.username !== undefined) {
+            if (dados.username) cy.get(ShadowDomPage.INPUT_USERNAME).clear().type(dados.username);
+            else cy.get(ShadowDomPage.INPUT_USERNAME).clear();
+        }
+        if (dados.email !== undefined) {
+            if (dados.email) cy.get(ShadowDomPage.INPUT_EMAIL).clear().type(dados.email);
+            else cy.get(ShadowDomPage.INPUT_EMAIL).clear();
+        }
+        if (dados.password !== undefined) {
+            if (dados.password) cy.get(ShadowDomPage.INPUT_PASSWORD).clear().type(dados.password);
+            else cy.get(ShadowDomPage.INPUT_PASSWORD).clear();
+        }
+        if (dados.confirmPassword !== undefined) {
+            if (dados.confirmPassword) cy.get(ShadowDomPage.INPUT_CONFIRM_PASSWORD).clear().type(dados.confirmPassword);
+            else cy.get(ShadowDomPage.INPUT_CONFIRM_PASSWORD).clear();
+        }
+    });
+})
+
+Cypress.Commands.add('PreencherFormularioExemploShadowDom', (dados: Partial<ShadowDomExampleData>) => {
+    cy.get(ShadowDomPage.EXAMPLE_HOST).shadow().within(() => {
+        if (dados.name !== undefined) {
+            if (dados.name) cy.get(ShadowDomPage.INPUT_EXAMPLE_NAME).clear().type(dados.name);
+            else cy.get(ShadowDomPage.INPUT_EXAMPLE_NAME).clear();
+        }
+        if (dados.email !== undefined) {
+            if (dados.email) cy.get(ShadowDomPage.INPUT_EXAMPLE_EMAIL).clear().type(dados.email);
+            else cy.get(ShadowDomPage.INPUT_EXAMPLE_EMAIL).clear();
+        }
+    });
+})
+
