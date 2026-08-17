@@ -2,6 +2,8 @@ name: All Browsers - End-to-end tests
 on:
   push:
   workflow_dispatch:
+permissions: write-all
+
 jobs:
   cypress-run-chrome:
     runs-on: ubuntu-22.04
