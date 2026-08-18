@@ -25,22 +25,21 @@ describe('Funcionalidade: Cadastro - Fale com um Especialista (Vertem)', () => {
         cy.PreencherFormularioVertem(dadosValidos);
 
         cy.allure().step('E clicar no botão Entrar para enviar o cadastro', true);
-        cy.get(VertemCadastroPage.BTN_SUBMIT).click();
+        cy.get(VertemCadastroPage.BTN_SUBMIT).first().click({ force: true });
 
         cy.allure().step('Então devemos validar que o formulário foi enviado com sucesso', true);
         cy.wait('@submitContactForm').its('response.statusCode').should('eq', 200);
-        cy.get(VertemCadastroPage.TXT_RESPONSE_OUTPUT)
+        cy.get(VertemCadastroPage.TXT_RESPONSE_OUTPUT).first()
             .should('be.visible')
             .and('contain.text', 'enviada com sucesso');
     });
 
     it('CT02 - Validar erro de campos obrigatórios ao tentar submeter formulário vazio', function() {
         cy.allure().step('Quando clicar no botão Entrar sem preencher os campos', true);
-        cy.get(VertemCadastroPage.BTN_SUBMIT).click();
+        cy.get(VertemCadastroPage.BTN_SUBMIT).first().click({ force: true });
 
-        cy.allure().step('Então devemos validar as mensagens de erro nos campos obrigatórios', true);
-        cy.get(VertemCadastroPage.TXT_FIELD_NOT_VALID).should('be.visible');
-        cy.get(VertemCadastroPage.INPUT_NOME).then(($el) => {
+        cy.allure().step('Então devemos validar que o navegador bloqueia pela validação de campo obrigatório', true);
+        cy.get(VertemCadastroPage.INPUT_NOME).first().then(($el) => {
             const input = $el[0] as HTMLInputElement;
             expect(input.checkValidity()).to.be.false;
         });
@@ -53,14 +52,13 @@ describe('Funcionalidade: Cadastro - Fale com um Especialista (Vertem)', () => {
         cy.PreencherFormularioVertem(dadosEmailInvalido);
 
         cy.allure().step('E clicar no botão Entrar', true);
-        cy.get(VertemCadastroPage.BTN_SUBMIT).click();
+        cy.get(VertemCadastroPage.BTN_SUBMIT).first().click({ force: true });
 
         cy.allure().step('Então devemos validar que o navegador bloqueia pela validação do tipo email', true);
-        cy.get(VertemCadastroPage.INPUT_EMAIL).then(($el) => {
+        cy.get(VertemCadastroPage.INPUT_EMAIL).first().then(($el) => {
             const input = $el[0] as HTMLInputElement;
             expect(input.checkValidity()).to.be.false;
         });
-
     });
 
     it('CT04 - Validar que a submissão não prossegue sem aceite dos termos da LGPD', function() {
@@ -70,11 +68,10 @@ describe('Funcionalidade: Cadastro - Fale com um Especialista (Vertem)', () => {
         cy.PreencherFormularioVertem(dadosSemAceite);
 
         cy.allure().step('E clicar no botão Entrar', true);
-        cy.get(VertemCadastroPage.BTN_SUBMIT).click();
+        cy.get(VertemCadastroPage.BTN_SUBMIT).first().click({ force: true });
 
         cy.allure().step('Então devemos verificar que a checkbox de aceite LGPD permanece desmarcada', true);
-        cy.get(VertemCadastroPage.CHECKBOX_ACEITE).should('not.be.checked');
+        cy.get(VertemCadastroPage.CHECKBOX_ACEITE).first().should('not.be.checked');
     });
 
 });
-

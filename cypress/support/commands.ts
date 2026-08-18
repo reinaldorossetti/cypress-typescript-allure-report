@@ -78,41 +78,41 @@ import { VertemCadastroPage, VertemCadastroData } from "../e2e/features/vertem_c
 
 Cypress.Commands.add('DadoQueEstejaNaTelaFaleComEspecialistaVertem', () => {
     cy.visit(VertemCadastroPage.URL);
-    cy.get(VertemCadastroPage.INPUT_NOME).should('be.visible');
+    cy.get(VertemCadastroPage.INPUT_NOME).first().should('be.visible');
 })
 
 Cypress.Commands.add('PreencherFormularioVertem', (dados: Partial<VertemCadastroData>) => {
     if (dados.nome !== undefined) {
-        if (dados.nome) cy.get(VertemCadastroPage.INPUT_NOME).clear().type(dados.nome);
-        else cy.get(VertemCadastroPage.INPUT_NOME).clear();
+        if (dados.nome) cy.get(VertemCadastroPage.INPUT_NOME).first().clear().type(dados.nome);
+        else cy.get(VertemCadastroPage.INPUT_NOME).first().clear();
     }
     if (dados.email !== undefined) {
-        if (dados.email) cy.get(VertemCadastroPage.INPUT_EMAIL).clear().type(dados.email);
-        else cy.get(VertemCadastroPage.INPUT_EMAIL).clear();
+        if (dados.email) cy.get(VertemCadastroPage.INPUT_EMAIL).first().clear().type(dados.email);
+        else cy.get(VertemCadastroPage.INPUT_EMAIL).first().clear();
     }
     if (dados.telefone !== undefined) {
-        if (dados.telefone) cy.get(VertemCadastroPage.INPUT_TELEFONE).clear().type(dados.telefone);
-        else cy.get(VertemCadastroPage.INPUT_TELEFONE).clear();
+        if (dados.telefone) cy.get(VertemCadastroPage.INPUT_TELEFONE).first().clear().type(dados.telefone);
+        else cy.get(VertemCadastroPage.INPUT_TELEFONE).first().clear();
     }
     if (dados.empresa !== undefined) {
-        if (dados.empresa) cy.get(VertemCadastroPage.INPUT_EMPRESA).clear().type(dados.empresa);
-        else cy.get(VertemCadastroPage.INPUT_EMPRESA).clear();
+        if (dados.empresa) cy.get(VertemCadastroPage.INPUT_EMPRESA).first().clear().type(dados.empresa);
+        else cy.get(VertemCadastroPage.INPUT_EMPRESA).first().clear();
     }
     if (dados.segmento !== undefined) {
-        if (dados.segmento) cy.get(VertemCadastroPage.SELECT_SEGMENTO).select(dados.segmento);
+        if (dados.segmento) cy.get(VertemCadastroPage.SELECT_SEGMENTO).first().select(dados.segmento);
     }
     if (dados.faturamento !== undefined) {
-        if (dados.faturamento) cy.get(VertemCadastroPage.SELECT_FATURAMENTO).select(dados.faturamento);
+        if (dados.faturamento) cy.get(VertemCadastroPage.SELECT_FATURAMENTO).first().select(dados.faturamento);
     }
     if (dados.cargo !== undefined) {
-        if (dados.cargo) cy.get(VertemCadastroPage.SELECT_CARGO).select(dados.cargo);
+        if (dados.cargo) cy.get(VertemCadastroPage.SELECT_CARGO).first().select(dados.cargo);
     }
     if (dados.mensagem !== undefined) {
-        if (dados.mensagem) cy.get(VertemCadastroPage.TEXTAREA_MENSAGEM).clear().type(dados.mensagem);
-        else cy.get(VertemCadastroPage.TEXTAREA_MENSAGEM).clear();
+        if (dados.mensagem) cy.get(VertemCadastroPage.TEXTAREA_MENSAGEM).first().clear().type(dados.mensagem);
+        else cy.get(VertemCadastroPage.TEXTAREA_MENSAGEM).first().clear();
     }
     if (dados.aceite) {
-        cy.get(VertemCadastroPage.CHECKBOX_ACEITE).check({ force: true });
+        cy.get(VertemCadastroPage.CHECKBOX_ACEITE).first().check({ force: true });
     }
 })
 

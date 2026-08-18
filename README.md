@@ -7,6 +7,21 @@
 
 Framework profissional de automação de testes End-to-End (E2E) desenvolvido em **Cypress** utilizando **TypeScript**, suporte a relatórios detalhados com **Allure Report** e esteira de integração contínua (CI/CD) via **GitHub Actions**.
 
+
+### Execução Global por Navegador
+Para executar todos os testes da suíte no navegador desejado via CLI:
+
+```bash
+# Executar todos os testes no Google Chrome
+npm run tests-chrome
+
+# Executar todos os testes no Microsoft Edge
+npm run tests-edge
+
+# Executar todos os testes no Mozilla Firefox
+npm run tests-firefox
+```
+
 ---
 
 ## 📋 Sumário
@@ -105,20 +120,6 @@ Crie um arquivo na raiz do projeto chamado `cypress.env.json` com o seguinte for
 ---
 
 ## 🧪 Execução dos Testes
-
-### Execução Global por Navegador
-Para executar todos os testes da suíte no navegador desejado via CLI:
-
-```bash
-# Executar todos os testes no Google Chrome
-npm run tests-chrome
-
-# Executar todos os testes no Microsoft Edge
-npm run tests-edge
-
-# Executar todos os testes no Mozilla Firefox
-npm run tests-firefox
-```
 
 ### Execução Separada por Feature
 
