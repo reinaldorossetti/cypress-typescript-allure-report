@@ -1,12 +1,11 @@
 {
     "compilerOptions": {
       "skipLibCheck": true,
-      "baseUrl": "./",
       "rootDir": "./",
       "target": "es6",
       "lib": ["es6", "dom"],
       "types": ["cypress", "node","@shelex/cypress-allure-plugin"],
-      "moduleResolution": "node",
+      "moduleResolution": "node10",
       "resolveJsonModule": true,
       "esModuleInterop": true,
       "allowJs": true,

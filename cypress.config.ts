@@ -10,7 +10,7 @@ export default defineConfig({
 
   env: {
     allure: true,
-    video: false,
+    video: true,
     allureReuseAfterSpec: true
   },
   

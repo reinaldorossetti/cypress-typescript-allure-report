@@ -2,10 +2,10 @@
 import { ShadowDomPage, ShadowSignUpFormData, ShadowDomExampleData } from "./elements/shadow_dom.elements";
 import { ShadowDomFactory } from "./factory/shadow_dom.factory";
 
-describe('Funcionalidade: Cadastro via Shadow DOM (Selenium Playground)', () => {
+describe('Funcionalidade: Realizar o Cadastro em uma página com Shadow DOM', () => {
 
     beforeEach(() => {
-        cy.allure().step('Dado que esteja na página de teste de Shadow DOM', true);
+        cy.allure().step('Dado que esteja na página de teste de Cadastro', true);
         cy.DadoQueEstejaNaTelaShadowDom();
     });
 

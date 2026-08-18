@@ -37,7 +37,7 @@ Cypress.Commands.add('DadoQueEstejaNaTelaDeCartoes', () => {
     cy.on('window:before:load', (win) => {
         cy.stub(win, 'open').callsFake(stub)
     })
-    cy.contains(HomePage.TXT_CAMPRA_ONLINE).should('be.visible').click()
+    cy.get(HomePage.LINK_COMPRE_ONLINE).scrollIntoView().should('be.visible').and('contain.text', HomePage.TXT_CAMPRA_ONLINE).click()
     // intercepta a chamada de uma nova aba.
     cy.get('@open').should('have.been.calledOnce')
     // muda a url para seguir na nova tela, o cypress identifica o mesmo dominio,

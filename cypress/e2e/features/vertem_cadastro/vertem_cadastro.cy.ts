@@ -36,13 +36,14 @@ describe('Funcionalidade: Cadastro - Fale com um Especialista (Vertem)', () => {
 
     it('CT02 - Validar erro de campos obrigatórios ao tentar submeter formulário vazio', function() {
         cy.allure().step('Quando clicar no botão Entrar sem preencher os campos', true);
+        cy.get(VertemCadastroPage.CHECKBOX_ACEITE).first().click();       
         cy.get(VertemCadastroPage.BTN_SUBMIT).first().click({ force: true });
+        cy.get('[class*="not-valid-tip"]').first()
+            .should('be.visible')
+            .and('contain.text', 'Preencha este campo.');
 
-        cy.allure().step('Então devemos validar que o navegador bloqueia pela validação de campo obrigatório', true);
-        cy.get(VertemCadastroPage.INPUT_NOME).first().then(($el) => {
-            const input = $el[0] as HTMLInputElement;
-            expect(input.checkValidity()).to.be.false;
-        });
+        cy.allure().step('Então devemos validar a mensagem campos possuem um erro', true);
+        cy.contains('Um ou mais campos possuem um erro. Verifique e tente novamente.').should('be.visible');
     });
 
     it('CT03 - Validar mensagem de erro ao informar e-mail corporativo em formato inválido', function() {
@@ -52,10 +53,10 @@ describe('Funcionalidade: Cadastro - Fale com um Especialista (Vertem)', () => {
         cy.PreencherFormularioVertem(dadosEmailInvalido);
 
         cy.allure().step('E clicar no botão Entrar', true);
-        cy.get(VertemCadastroPage.BTN_SUBMIT).first().click({ force: true });
+        cy.get(VertemCadastroPage.BTN_SUBMIT).first().should('be.visible').click({ force: true });
 
         cy.allure().step('Então devemos validar que o navegador bloqueia pela validação do tipo email', true);
-        cy.get(VertemCadastroPage.INPUT_EMAIL).first().then(($el) => {
+        cy.get(VertemCadastroPage.INPUT_EMAIL).first().should('be.visible').then(($el) => {
             const input = $el[0] as HTMLInputElement;
             expect(input.checkValidity()).to.be.false;
         });

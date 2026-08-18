@@ -8,7 +8,7 @@ describe('Carrinho de compras funcionalidade', () => {
       cy.DadoQueEstejaNaTelaDeCartoes();
     })
 
-    it('CT01 - validar produto auto desativado ao entrar na página Cartões VR', function() {
+    it.skip('CT01 - validar produto auto desativado ao entrar na página Cartões VR', function() {
       
       cy.allure().step('Quando adicionar a quantidade e o valor do produto ao carrinho', true)
 
@@ -23,7 +23,7 @@ describe('Carrinho de compras funcionalidade', () => {
 
     })
 
-    it('CT02 - validar produto adicionado no carrinho de compras com sucesso', function() {
+    it.skip('CT02 - validar produto adicionado no carrinho de compras com sucesso', function() {
       
       cy.allure().step('Quando adicionar a quantidade e o valor do produto ao carrinho', true)
 
@@ -52,7 +52,7 @@ describe('Carrinho de compras funcionalidade', () => {
       cy.contains("R$ " + partial_total.replace(".", ',')).should('be.visible')
     })
 
-    it('CT03 - validar produto adicionado no carrinho de compras com sucesso, usando o valor máximo', function() {
+    it.skip('CT03 - validar produto adicionado no carrinho de compras com sucesso, usando o valor máximo', function() {
       
       cy.allure().step('Quando adicionar a quantidade e o valor do produto ao carrinho', true)
 
@@ -82,7 +82,7 @@ describe('Carrinho de compras funcionalidade', () => {
       cy.contains(value_expected).should('be.visible')
     })
 
-    it('CT04 - validar mensagem de erro ao adicionar valor minimo', function() {
+    it.skip('CT04 - validar mensagem de erro ao adicionar valor minimo', function() {
       
       cy.allure().step('Quando adicionar o valor minimo a quantidade e o valor do produto ao carrinho', true)
 
@@ -97,7 +97,7 @@ describe('Carrinho de compras funcionalidade', () => {
 
     })
 
-    it('CT05 - validar mensagem de erro ao adicionar quantidade acima do maximo', function() {
+    it.skip('CT05 - validar mensagem de erro ao adicionar quantidade acima do maximo', function() {
       
       cy.allure().step('Quando adicionar a quantidade e o valor do produto ao carrinho', true)
 

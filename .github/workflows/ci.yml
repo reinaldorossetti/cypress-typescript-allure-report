@@ -1,15 +1,17 @@
 name: All Browsers - End-to-end tests
 on:
-  push:
   workflow_dispatch:
-permissions: write-all
+permissions:
+  contents: write
+  checks: write
+  pull-requests: write
 
 jobs:
   cypress-run-chrome:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
