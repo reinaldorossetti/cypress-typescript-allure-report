@@ -42,7 +42,7 @@ Cypress.Commands.add('DadoQueEstejaNaTelaDeCartoes', () => {
     cy.get('@open').should('have.been.calledOnce')
     // muda a url para seguir na nova tela, o cypress identifica o mesmo dominio,
     // sendo assim não é possivel fazer cy.origin
-    cy.visit(Cypress.env("BASE_URL"));
+    cy.visit(Cypress.expose("BASE_URL"));
     cy.contains(HomePage.TXT_MESSAGE).should('be.visible')
     cy.get(HomePage.BTN_TERMS).click()
     cy.get(HomePage.BTN_CLOSE).click()
@@ -50,9 +50,9 @@ Cypress.Commands.add('DadoQueEstejaNaTelaDeCartoes', () => {
 })
 
 Cypress.Commands.add('GerarCNPJ' as any, () => {
-    let create_array = (total, numero) => Array.from(Array(total), () => number_random(numero));
-    let number_random = (number) => (Math.round(Math.random() * number));
-    let mod = (dividendo, divisor) => Math.round(dividendo - (Math.floor(dividendo / divisor) * divisor));
+    let create_array = (total: number, numero: number) => Array.from(Array(total), () => number_random(numero));
+    let number_random = (number: number) => (Math.round(Math.random() * number));
+    let mod = (dividendo: number, divisor: number) => Math.round(dividendo - (Math.floor(dividendo / divisor) * divisor));
     
     let total_array = 8;
     let n = 9;

@@ -191,4 +191,4 @@ A cada push ou pull request na branch `main`, a esteira do GitHub Actions roda a
 - **Data Factory Pattern**: Uso da biblioteca `@faker-js/faker` para geração desacoplada e dinâmica de massas de dados de teste (ex: `VertemCadastroFactory`).
 - **Page Objects & Elements**: Separação clara entre seletores de página, modelos de dados e lógica dos specs.
 - **Custom Commands Reutilizáveis**: Encapsulamento de fluxos recorrentes em `cypress/support/commands.ts`.
-- **Relatórios Ricos com Allure**: Categorização de steps (`cy.allure().step()`), severidades e capturas automáticas de evidências em falhas.
+- **Relatórios Ricos com Allure**: Categorização de steps (`allure.step()`), severidades e capturas automáticas de evidências em falhas.

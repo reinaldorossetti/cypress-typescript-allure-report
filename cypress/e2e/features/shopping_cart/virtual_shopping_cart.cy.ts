@@ -1,22 +1,23 @@
 /// <reference types="cypress" />
 import { CartoesPage } from "./elements/virtual_shopping.elements"
+import * as allure from "allure-js-commons";
 
 describe('Carrinho de compras funcionalidade', () => {
 
     beforeEach(() => {
-      cy.allure().step('Dado que esteja na tela de cartões VR.', true)
+      allure.description('Dado que esteja na tela de cartões VR.')
       cy.DadoQueEstejaNaTelaDeCartoes();
     })
 
     it.skip('CT01 - validar produto auto desativado ao entrar na página Cartões VR', function() {
       
-      cy.allure().step('Quando adicionar a quantidade e o valor do produto ao carrinho', true)
+      allure.description('Quando adicionar a quantidade e o valor do produto ao carrinho')
 
       cy.get(CartoesPage.BTN_ADD_CART).then(($el)=>{ $el.get(0).scrollIntoView()}).should('be.disabled')
 
       cy.get(CartoesPage.BTN_CART).then(($el)=>{ $el.get(0).scrollIntoView()}).click()
 
-      cy.allure().step('Então devemos validar que o carrinho está vazio.', true)
+      allure.description('Então devemos validar que o carrinho está vazio.')
 
       cy.contains(CartoesPage.TXT_CARINHO_VAZIO).should('be.visible')
       cy.get(CartoesPage.ICON_CARINHO_VAZIO).should('be.visible')
@@ -25,7 +26,7 @@ describe('Carrinho de compras funcionalidade', () => {
 
     it.skip('CT02 - validar produto adicionado no carrinho de compras com sucesso', function() {
       
-      cy.allure().step('Quando adicionar a quantidade e o valor do produto ao carrinho', true)
+      allure.description('Quando adicionar a quantidade e o valor do produto ao carrinho')
 
       const value = String(Cypress._.random(100, 300))
       const value_format = String(value).replace(/(.)(?=(\d{2})+$)/g,'$1,')
@@ -39,7 +40,7 @@ describe('Carrinho de compras funcionalidade', () => {
       cy.contains(CartoesPage.TXT_MESSAGE_CART).should('be.visible')
       cy.get(CartoesPage.BTN_CART).then(($el)=>{ $el.get(0).scrollIntoView()}).click()
 
-      cy.allure().step('Então devemos validar que os dados adicionando ao carrinho estão corretos.', true)
+      allure.description('Então devemos validar que os dados adicionando ao carrinho estão corretos.')
 
       cy.contains(CartoesPage.TXT_MEU_CARRINHO).should('be.visible')
       cy.contains(CartoesPage.TXT_VALOR_CARTAO).should('be.visible')
@@ -54,7 +55,7 @@ describe('Carrinho de compras funcionalidade', () => {
 
     it.skip('CT03 - validar produto adicionado no carrinho de compras com sucesso, usando o valor máximo', function() {
       
-      cy.allure().step('Quando adicionar a quantidade e o valor do produto ao carrinho', true)
+      allure.description('Quando adicionar a quantidade e o valor do produto ao carrinho')
 
       const value1 = "300"
       const value2 = "9999999"
@@ -70,7 +71,7 @@ describe('Carrinho de compras funcionalidade', () => {
       cy.contains(CartoesPage.TXT_MESSAGE_CART).should('be.visible')
       cy.get(CartoesPage.BTN_CART).then(($el)=>{ $el.get(0).scrollIntoView()}).click()
 
-      cy.allure().step('Então devemos validar que os dados adicionando ao carrinho estão corretos.', true)
+      allure.description('Então devemos validar que os dados adicionando ao carrinho estão corretos.')
 
       cy.contains(CartoesPage.TXT_MEU_CARRINHO).should('be.visible')
       cy.contains(CartoesPage.TXT_VALOR_CARTAO).should('be.visible')
@@ -84,14 +85,14 @@ describe('Carrinho de compras funcionalidade', () => {
 
     it.skip('CT04 - validar mensagem de erro ao adicionar valor minimo', function() {
       
-      cy.allure().step('Quando adicionar o valor minimo a quantidade e o valor do produto ao carrinho', true)
+      allure.description('Quando adicionar o valor minimo a quantidade e o valor do produto ao carrinho')
 
       const value = String(1)
       cy.get(CartoesPage.INPUT_AUTO_QUANTIDADE).then(($el)=>{ $el.get(0).scrollIntoView()})
         .type(value)
       cy.get(CartoesPage.INPUT_AUTO_VALOR).then(($el)=>{ $el.get(0).scrollIntoView()}).type(value)
       
-      cy.allure().step('Então validar mensagem de erro de valor mínimo', true)
+      allure.description('Então validar mensagem de erro de valor mínimo')
       
       cy.contains(CartoesPage.TXT_VALOR_MINIMO).should('be.visible')
 
@@ -99,7 +100,7 @@ describe('Carrinho de compras funcionalidade', () => {
 
     it.skip('CT05 - validar mensagem de erro ao adicionar quantidade acima do maximo', function() {
       
-      cy.allure().step('Quando adicionar a quantidade e o valor do produto ao carrinho', true)
+      allure.description('Quando adicionar a quantidade e o valor do produto ao carrinho')
 
       const value = String(301)
       cy.get(CartoesPage.INPUT_AUTO_QUANTIDADE).then(($el)=>{ $el.get(0).scrollIntoView()})
@@ -110,11 +111,11 @@ describe('Carrinho de compras funcionalidade', () => {
         cy.get(CartoesPage.BTN_ADD_CART).then(($el)=>{ $el.get(0).scrollIntoView()}).click()
       })
 
-      cy.allure().step('Então validar mensagem de erro de valor máximo', true)
+      allure.description('Então validar mensagem de erro de valor máximo')
       
       cy.contains(CartoesPage.TXT_QTD_MAXIMA).should('be.visible')
 
-      cy.allure().step('E devemos validar que o carrinho está vazio.', true)
+      allure.description('E devemos validar que o carrinho está vazio.')
    
       cy.get(CartoesPage.BTN_CART).then(($el)=>{ $el.get(0).scrollIntoView()}).click()
       cy.contains(CartoesPage.TXT_CARINHO_VAZIO).should('be.visible')

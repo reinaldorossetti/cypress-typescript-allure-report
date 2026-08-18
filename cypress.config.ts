@@ -1,5 +1,5 @@
 import { defineConfig } from "cypress";
-const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+import { allureCypress } from "allure-cypress/reporter";
 
 export default defineConfig({
   viewportWidth: 1440,
@@ -7,7 +7,8 @@ export default defineConfig({
   defaultCommandTimeout: 30000,
   pageLoadTimeout:60000,
   screenshotOnRunFailure: true,
-
+  allowCypressEnv: true,
+  
   env: {
     allure: true,
     video: true,
@@ -20,8 +21,10 @@ export default defineConfig({
     includeShadowDom: true,
     retries: 1,
     setupNodeEvents(on, config) {
-      // implement node event listeners here
-      allureWriter(on, config);
+        // implement node event listeners here
+        allureCypress(on, config, {
+        resultsDir: "allure-results",
+      });
       return config;
     },
     // Para setar o caminho dos testes.
