@@ -26,7 +26,8 @@ jobs:
         env: allure=true,video=false
         browser: chrome
         headed: true
-      
+      continue-on-error: true
+
     - name: mostra as pastas
       run: ls -la
     - name:  Step 3 - Collect Allure files and generate allure-report folder

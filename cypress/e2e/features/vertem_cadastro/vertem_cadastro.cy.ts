@@ -72,7 +72,7 @@ describe('Funcionalidade: Cadastro - Fale com um Especialista (Vertem)', () => {
         cy.get(VertemCadastroPage.BTN_SUBMIT).first().click({ force: true });
 
         cy.allure().step('Então devemos verificar que a checkbox de aceite LGPD permanece desmarcada', true);
-        cy.get(VertemCadastroPage.CHECKBOX_ACEITE).first().should('not.be.checked');
+        cy.get(VertemCadastroPage.CHECKBOX_ACEITE).first().then(($el)=>{ $el.get(0).scrollIntoView()}).should('not.be.checked');
     });
 
 });
